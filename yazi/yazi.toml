@@ -1,0 +1,52 @@
+"$schema" = "https://yazi-rs.github.io/schemas/yazi.json" #
+
+[manager]
+ratio = [1, 2, 5] #[cite: 1]
+sort_by = "natural" #[cite: 1]
+sort_sensitive = false #[cite: 1]
+sort_reverse = false #[cite: 1]
+sort_dir_first = true #[cite: 1]
+sort_translit = false #[cite: 1]
+show_hidden = false #[cite: 1]
+show_symlink = true #[cite: 1]
+scrolloff = 5 #[cite: 1]
+mouse_event = ["click", "scroll"] #[cite: 1]
+linemode = "size"
+
+[preview]
+tab_size = 2 #[cite: 1]
+max_width = 1000
+max_height = 1500
+image_filter = "lanczos3" #[cite: 1]
+image_quality = 90 #[cite: 1]
+sixel_fraction = 15 #[cite: 1]
+
+[opener]
+play = [
+    { run = 'mpv "$@"', orphan = true, for = "unix" } #[cite: 1]
+]
+edit = [
+    { run = 'nvim "$@"', block = true, for = "unix" }, #[cite: 1]
+    { run = 'code "$@"', orphan = true, for = "unix" }
+]
+open = [
+    { run = 'xdg-open "$@"', desc = "Open" } #[cite: 1]
+]
+
+[open]
+rules = [
+    { name = "*.html", use = ["open", "edit"] },
+    { name = "*.php",  use = ["edit", "open"] },
+    { name = "*.js",   use = ["edit", "open"] },
+    { name = "*.json", use = ["edit", "open"] },
+    { mime = "text/*",  use = "edit" },
+    { mime = "image/*", use = ["open", "play"] },
+    { mime = "video/*", use = "play" }
+]
+
+[input]
+cursor_blink = true
+cd_origin = "top-center"
+create_origin = "top-center"
+rename_origin = "top-center"
+search_origin = "top-center"

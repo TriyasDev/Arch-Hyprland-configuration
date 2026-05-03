@@ -1,0 +1,100 @@
+
+{
+    "reload_style_on_change": true,
+    "layer": "top",
+    "position": "top",
+    "height": 39,
+    "spacing": 4,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "memory",
+        "temperature",
+        "battery",
+        "clock"
+    ],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+    	"all-outputs": true,
+    	"warp-on-scroll": false,
+    	"on-click": "activate",
+    	"format": ""
+    },
+
+    "clock": {
+	"interval": 1,
+        "format": "󰃮  {:%H:%M:%S}",
+        "format-alt": "󰃮  {:%Y-%m-%d | %H:%M}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "month",
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#7E9CD8'><b>{}</b></span>",
+                "days":       "<span color='#E6C384'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#E46876'><b><u>{}</u></b></span>"
+            }
+	}
+    },
+
+    "memory": {
+	    "interval": 30,
+	    "format": "\uefc5 {used:0.1f}G",
+	    "tooltip": true,
+	    "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G"
+    },
+
+    "temperature": {
+        "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "󰈸  {temperatureC}°C",
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", "", "", ""],
+	"tooltip": false
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄  {capacity}%",
+        "format-plugged":  "󰚥  {capacity}%",
+        "format-icons": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"]
+    },
+
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󰈀  {ipaddr}",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-disconnected": "󰤭  Offline",
+	"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+	"on-click": "nm-connection-editor"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "󰂰  {volume}%",
+	"format-muted": "󰝟  muted",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "  ",
+            "headset": "  ",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}

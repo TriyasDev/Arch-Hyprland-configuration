@@ -1,0 +1,195 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 12px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0); 
+    border: none;
+}
+
+window#waybar.hidden {
+    opacity: 0.15;
+}
+
+.modules-left,
+.modules-right {
+    padding: 0 6px;
+    background: transparent;
+}
+
+#workspaces {
+    margin: 3px 3px;
+    background: rgba(84, 84, 109, 0.10);
+    border: 1px solid rgba(84, 84, 109, 0.22);
+    border-radius: 100px;
+    padding: 0 4px;
+}
+
+#workspaces button {
+    all: unset;
+    padding: 2px 10px;
+    margin: 3px 1px;
+    color: #54546D;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 100px;
+    transition: all 0.18s ease;
+}
+
+#workspaces button:hover {
+    background: rgba(200, 192, 147, 0.10);
+    color: #C8C093;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+    background: rgba(149, 127, 184, 0.18);
+    color: #957FB8;
+    border: 1px solid rgba(149, 127, 184, 0.30);
+}
+
+#workspaces button.urgent {
+    background: rgba(228, 104, 118, 0.15);
+    color: #E46876;
+    border: 1px solid rgba(228, 104, 118, 0.30);
+}
+
+/* ── Pill base ────────────────────────────── */
+#clock,
+#battery,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#wireplumber
+{
+    padding: 5px 14px;
+    margin: 5px 3px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+/* ── Clock ────────────────────────────────── */
+#clock {
+    background: rgba(126, 156, 216, 0.14);
+    color: #7E9CD8;
+    border: 1px solid rgba(126, 156, 216, 0.28);
+}
+
+/* ── Battery ──────────────────────────────── */
+#battery {
+    background: rgba(152, 187, 108, 0.14);
+    color: #98BB6C;
+    border: 1px solid rgba(152, 187, 108, 0.28);
+}
+
+#battery.warning {
+    background: rgba(230, 195, 132, 0.14);
+    color: #E6C384;
+    border-color: rgba(230, 195, 132, 0.28);
+}
+
+#battery.critical:not(.charging) {
+    background: rgba(228, 104, 118, 0.16);
+    color: #E46876;
+    border-color: rgba(228, 104, 118, 0.35);
+    animation: blink-red 1s steps(1) infinite alternate;
+}
+
+#battery.charging,
+#battery.plugged {
+    background: rgba(122, 168, 159, 0.14);
+    color: #7AA89F;
+    border-color: rgba(122, 168, 159, 0.28);
+}
+
+@keyframes blink-red {
+    to {
+        background: rgba(255, 93, 98, 0.28);
+        color: #FF5D62;
+        border-color: #FF5D62;
+    }
+}
+
+/* ── Memory ───────────────────────────────── */
+#memory {
+    background: rgba(149, 127, 184, 0.12);
+    color: #957FB8;
+    border: 1px solid rgba(149, 127, 184, 0.26);
+}
+
+#memory.critical {
+    background: rgba(228, 104, 118, 0.15);
+    color: #E46876;
+    border-color: rgba(228, 104, 118, 0.32);
+}
+
+/* ── Temperature ──────────────────────────── */
+#temperature {
+    background: rgba(255, 160, 102, 0.12);
+    color: #FFA066;
+    border: 1px solid rgba(255, 160, 102, 0.26);
+}
+
+#temperature.critical {
+    background: rgba(228, 104, 118, 0.18);
+    color: #E46876;
+    border-color: rgba(228, 104, 118, 0.4);
+    animation: blink-red 0.8s steps(1) infinite alternate;
+}
+
+/* ── Network ──────────────────────────────── */
+#network {
+    background: rgba(127, 180, 202, 0.12);
+    color: #7FB4CA;
+    border: 1px solid rgba(127, 180, 202, 0.26);
+}
+
+#network.disconnected {
+    background: rgba(228, 104, 118, 0.12);
+    color: #E46876;
+    border-color: rgba(228, 104, 118, 0.28);
+}
+
+/* ── Pulseaudio / Wireplumber ─────────────── */
+#pulseaudio,
+#wireplumber {
+    background: rgba(230, 195, 132, 0.12);
+    color: #E6C384;
+    border: 1px solid rgba(230, 195, 132, 0.26);
+}
+
+#pulseaudio:hover,
+#wireplumber:hover {
+    background: rgba(230, 195, 132, 0.2);
+}
+
+#pulseaudio.muted,
+#wireplumber.muted {
+    background: rgba(84, 84, 109, 0.12);
+    color: #54546D;
+    border-color: rgba(84, 84, 109, 0.22);
+}
+
+/* ── Tooltip ──────────────────────────────── */
+tooltip {
+    background: #16161D;
+    border: 1px solid rgba(45, 79, 103, 0.7);
+    border-radius: 12px;
+    color: #DCD7BA;
+    padding: 4px 8px;
+}
+
+tooltip label {
+    color: #DCD7BA;
+    font-size: 12px;
+}
